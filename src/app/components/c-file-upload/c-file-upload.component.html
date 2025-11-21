@@ -1,0 +1,20 @@
+<div class="form-file-upload">
+  <label *ngIf="label">{{ label }}</label>
+
+  <div class="upload-wrapper" [class.disabled]="disabled">
+    <input
+      type="file"
+      #fileInput
+      [multiple]="multiple"
+      [accept]="accept"
+      (change)="onFileChange($event)"
+      [disabled]="disabled"
+    />
+    <button type="button" (click)="fileInput.click()" [disabled]="disabled">Dosya Seç</button>
+    <span *ngIf="files.length">{{ files | fileNames }}</span>
+  </div>
+
+  <small class="error" *ngIf="control.invalid && control.touched">
+    {{ getErrorMessage() }}
+  </small>
+</div>

@@ -1,0 +1,42 @@
+.form-select {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+
+    label {
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    select.form-control {
+        background-color: transparent;
+        border:none;
+        border-bottom: 2px solid #ccc;
+        appearance: none;
+        font-size: 14px;
+        width: 100%;
+        padding: 12px 15px;
+        margin: 8px 0;
+        color:white;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+        &:focus {
+            outline: none;
+        }
+        
+    }
+
+    select option {
+        color: #000;
+    }
+
+    .error {
+        color: #d9534f;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+}

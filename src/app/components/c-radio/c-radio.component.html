@@ -1,0 +1,22 @@
+<div class="form-radio">
+  <label *ngIf="label">{{ label }}</label>
+
+  <div class="radio-options">
+    <label *ngFor="let option of options" class="radio-option">
+      <input
+        type="radio"
+        [name]="name"
+        [value]="option.value"
+        [checked]="value === option.value"
+        [disabled]="disabled"
+        (change)="onRadioChange(option.value)"
+        (blur)="onTouched()"
+      />
+      {{ option.label }}
+    </label>
+  </div>
+
+  <small class="error" *ngIf="control.invalid && control.touched">
+    {{ getErrorMessage() }}
+  </small>
+</div>

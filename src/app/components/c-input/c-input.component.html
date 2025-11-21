@@ -1,0 +1,37 @@
+<div class="form-input">
+
+  <label *ngIf="label">{{ label }}</label>
+
+  <div class="input-wrapper" [class.has-icon]="icon">
+
+    <i *ngIf="icon" class="{{ icon }}"></i>
+
+    <ng-container [ngSwitch]="textarea">
+      <textarea
+        *ngSwitchCase="true"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [value]="value"
+        (input)="onInput($event)"
+        (blur)="onTouched()"
+        class="form-control"
+        rows="rows">
+      </textarea>
+
+      <input
+        *ngSwitchDefault
+        [type]="type"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [value]="value"
+        (input)="onInput($event)"
+        (blur)="onTouched()"
+        class="form-control"
+      />
+    </ng-container>
+  </div>
+
+  <small class="error" *ngIf="control.invalid && control.touched">
+    {{ getErrorMessage() }}
+  </small>
+</div>

@@ -1,0 +1,30 @@
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <c-input label="E-posta" placeholder="e-posta girin" type="email" formControlName="email" [customErrors]="{
+      required: 'E-posta boş bırakılamaz!',
+      email: 'Lütfen geçerli bir e-posta girin!'
+    }">
+    </c-input>
+
+    <c-input label="Açıklama" [textarea]="true" [rows]="5" placeholder="Mesaj yazın..." formControlName="message">
+    </c-input>
+
+    <c-select label="Ülke" placeholder="Ülke seçin" [options]="countries" formControlName="country"
+      [customErrors]="{ required: 'Lütfen bir ülke seçin!' }">
+    </c-select>
+
+    <c-radio label="Cinsiyet" name="gender" [options]="genders" formControlName="gender"
+      [customErrors]="{ required: 'Lütfen bir cinsiyet seçin!' }">
+    </c-radio>
+
+    <c-file-upload label="Dosya Yükle" [multiple]="true" accept=".png,.jpg,.pdf" formControlName="attachments"
+      [customErrors]="{ required: 'Lütfen en az bir dosya seçin!' }">
+    </c-file-upload>
+
+    <c-checkbox label="Kullanım koşullarını kabul ediyorum" formControlName="acceptTerms"
+      [customErrors]="{ required: 'Lütfen kullanım koşullarını kabul edin!' }">
+    </c-checkbox>
+
+    <button type="submit" [disabled]="form.invalid">Gönder</button>
+  </form>
+</div>

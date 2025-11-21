@@ -1,0 +1,16 @@
+<div class="form-checkbox">
+  <label>
+    <input
+      type="checkbox"
+      [disabled]="disabled"
+      [checked]="value"
+      (change)="onCheckboxChange($event)"
+      (blur)="onTouched()"
+    />
+    {{ label }}
+  </label>
+
+  <small class="error" *ngIf="control?.invalid && control.touched">
+    {{ getErrorMessage() }}
+  </small>
+</div>
